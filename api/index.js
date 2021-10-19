@@ -8,20 +8,19 @@ app.use(cors())
 
 app.post('/patients', function (req, res) {
     res.sendStatus(200)
-    //     const connection = await mysql.createConnection({
+    // const connection = await mysql.createConnection({
     //     user: 'root',
     //     password: 'password',
     //     database: 'lrss_2021-10-18'
     // })
     //
-
     // if(req.body.email === 'test' && req.body.password === 'test') {
     //     res.json('OK');
     // } else {
     //     res.json('error logging in');
     // }
     //
-    // const patients = await connection.query('INSERT * FROM `coins`')
+    // const patients = await connection.query('')
 })
 
 app.listen(port)
