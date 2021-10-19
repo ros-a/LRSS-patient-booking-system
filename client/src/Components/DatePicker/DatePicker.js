@@ -1,11 +1,13 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import {FormGroup} from "react-bootstrap";
 
 class DatePicker extends React.Component {
     constructor(props) {
         super(props);
         this.handleDayClick = this.handleDayClick.bind(this);
+
         this.state = {
             selectedDay: null,
             today: new Date()
@@ -14,13 +16,14 @@ class DatePicker extends React.Component {
 
     handleDayClick(day, { selected }) {
         this.setState({
-            selectedDay: selected ? undefined : day,
+            selectedDay: selected ? null : day,
         });
+        this.props.setDateSelected(selected ? null : day)
     }
 
     render() {
         return (
-            <div>
+            <FormGroup>
                 <DayPicker
                     fromMonth={this.state.today}
                     fixedWeeks
@@ -28,9 +31,9 @@ class DatePicker extends React.Component {
                     onDayClick={this.handleDayClick}
                     initialMonth={this.state.today}
                     disabledDays={[{daysOfWeek: [0,6]}, {before: this.state.today }]}
-                    todayButton="Go to Today"
                 />
-            </div>
+                <p>{this.state.selectedDay ? this.state.selectedDay.toLocaleDateString() : 'Please select a date.'}</p>
+            </FormGroup>
         );
     }
 }
