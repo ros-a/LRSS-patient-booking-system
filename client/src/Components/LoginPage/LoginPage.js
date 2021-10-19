@@ -19,7 +19,7 @@ const LoginPage = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        const url = 'postRoute'
+        const url = 'http://localhost:3001/patients'
         const requestOptions = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
