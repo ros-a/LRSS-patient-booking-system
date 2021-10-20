@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from "react";
-import {Form, FormGroup} from "react-bootstrap";
+import {Form} from "react-bootstrap";
 import './PatientBookingPage.css'
 import 'react-day-picker/lib/style.css';
 import DatePicker from "../DatePicker/DatePicker";
 import AppointmentSelector from "../AppointmentSelector/AppointmentSelector";
 import DoctorSelector from "../DoctorSelector/DoctorSelector";
+import ConfirmAppointmentModal from "../ConfirmAppointmentModal/ConfirmAppointmentModal";
 
 
 
-const PatientBookingPage = (props) => {
-    const [doctorSelected, setDoctorSelected] = useState(null)
-    const [dateSelected, setDateSelected] = useState(null)
-    const [appointmentSelected, setAppointmentSelected] = useState(null)
+const PatientBookingPage = () => {
+    const [doctorSelected, setDoctorSelected] = useState('')
+    const [dateSelected, setDateSelected] = useState('')
+    const [appointmentSelected, setAppointmentSelected] = useState({string: '', timeSlot: 0})
 
     useEffect(() => {
-       //
+        console.log(appointmentSelected)
     }, [appointmentSelected])
 
     return (
@@ -26,7 +27,12 @@ const PatientBookingPage = (props) => {
                 <AppointmentSelector
                     doctorSelected={doctorSelected}
                     dateSelected={dateSelected}
+                    appointmentSelected={appointmentSelected}
                     setAppointmentSelected={setAppointmentSelected}/>
+                <ConfirmAppointmentModal
+                    doctorSelected={doctorSelected}
+                    dateSelected={dateSelected}
+                    appointmentSelected={appointmentSelected}/>
             </Form>
         </main>
     )

@@ -17,7 +17,7 @@ const DoctorSelector = (props) => {
     return (
         <FormGroup className="form-floating">
             <select onChange={handleSelect} className="form-control" id="drSelector">
-                <option key="0">Any Doctor</option>
+                <option key="0" value=""> </option>
                 {allDoctors.map(doctor =>
                     <option key={doctor.id}>{doctor.name}</option>
                 )}

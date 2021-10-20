@@ -9,16 +9,16 @@ class DatePicker extends React.Component {
         this.handleDayClick = this.handleDayClick.bind(this);
 
         this.state = {
-            selectedDay: null,
+            selectedDay: '',
             today: new Date()
         };
     }
 
     handleDayClick(day, { selected }) {
         this.setState({
-            selectedDay: selected ? null : day,
+            selectedDay: selected ? '' : day,
         });
-        this.props.setDateSelected(selected ? null : day)
+        this.props.setDateSelected(selected ? '' : day)
     }
 
     render() {
